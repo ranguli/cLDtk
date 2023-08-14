@@ -1,31 +1,52 @@
 # cLDtk
-C99 loader for the LDtk map editor
+C99 loader for the [LDtk](https://ldtk.io/) map editor, using [Parson](https://github.com/kgabis/parson) for JSON parsing.
 
-built using parson: https://github.com/kgabis/parson
+This is a fork of the [original](https://github.com/PompPenguin/cLDtk) by PompPenguin. This forks builds the library with CMake (see [Getting Started](#getting-started)). Future plans include adding API documentation, and probably some code cleanup/refactoring as well.
 
-LDtk map editor: https://ldtk.io/
+## Documentation
 
+There original author of cLDtk wrote some [examples](https://github.com/ranguli/cLDtk/tree/main/examples) (including for Raylib!) which should useful for gaining a basic understanding of how the library works. 
 
-How to compile for GCC
+I'd like to add API documentation using Doxygen at some point in the future.
 
-```sh
-gcc -c cLDtk.c parson.c -std=c99
+## Getting Started
+
+The easiest way to add cLDtk to a CMake project is to use `FetchContent`. It will automatically download and build the project for you when you run `cmake`.
+
+```cmake
+# CMakeLists.txt
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
+
+# Adding cLDtk
+FetchContent_Declare(
+    cLDtk 
+    GIT_REPOSITORY "https://github.com/ranguli/cLDtk.git"
+    GIT_TAG "main"
+    GIT_PROGRESS TRUE
+)
+
+FetchContent_MakeAvailable(cLDtk)
 ```
-```sh
-ar rvs libcLDtk.a cLDtk.o parson.o
-```
-```sh
-gcc example.c -o example.exe libcLDtk.a -std=c99
-```
-How to compile for DJGPP(MS-DOS)
 
-```sh
-gcc -c cLDtk.c parson.c -std=c99
-```
-```sh
-ar rvs libcLDtk.a cLDtk.o parson.o
-```
-```sh
-gcc example.c -o example.exe libcLDtk.a -std=c99 -lalleg
+Keep in mind that the `main` branch might not be stable, and you may be better off using a release tag. 
+
+Then you'll be able to link `cLDtk` in CMake using:
+
+```cmake
+
+target_link_libraries(my-cool-project PRIVATE cLDtk)
+
 ```
 
+
+## Building
+
+Assuming you don't want to use the method mentioned above of directly fetching and building CLDtk as a dependency in your `CMakeLists.txt` file, you can also build it using the standard 'clone and make' approach:
+``` 
+git clone https://github.com/ranguli/cLDtk
+cd cLDtk
+mkdir build && cd build
+cmake .
+make
+```

@@ -5,44 +5,19 @@ This is a fork of the [original](https://github.com/PompPenguin/cLDtk) by PompPe
 
 ## Documentation
 
-There original author of cLDtk wrote some [examples](https://github.com/ranguli/cLDtk/tree/main/examples) (including for Raylib!) which should useful for gaining a basic understanding of how the library works. 
+There original author of `cLDtk` wrote some [examples](https://github.com/ranguli/cLDtk/tree/main/examples) (including for Raylib!) which should useful for gaining a basic understanding of how the library works. 
 
 I'd like to add API documentation using Doxygen at some point in the future.
 
 ## Getting Started
 
-The easiest way to add cLDtk to a CMake project is to use `FetchContent`. It will automatically download and build the project for you when you run `cmake`.
-
-```cmake
-# CMakeLists.txt
-include(FetchContent)
-set(FETCHCONTENT_QUIET FALSE)
-
-# Adding cLDtk
-FetchContent_Declare(
-    cLDtk 
-    GIT_REPOSITORY "https://github.com/ranguli/cLDtk.git"
-    GIT_TAG "main"
-    GIT_PROGRESS TRUE
-)
-
-FetchContent_MakeAvailable(cLDtk)
-```
-
-Keep in mind that the `main` branch might not be stable, and you may be better off using a release tag. 
-
-Then you'll be able to link `cLDtk` in CMake using:
-
-```cmake
-
-target_link_libraries(my-cool-project PRIVATE cLDtk)
-
-```
-
+The easiest way to add `cLDtk` project is to add the files in the `src/` directory (`cLDtk.c`, `cLDtk.h`, `parson.c`, `parson.h`) into your project. Keep in mind that the
+files on the `main` branch might not be stable, and you may be better off using a release tag. 
 
 ## Building
 
-Assuming you don't want to use the method mentioned above of directly fetching and building CLDtk as a dependency in your `CMakeLists.txt` file, you can also build it using the standard 'clone and make' approach:
+The building workflow for cLDtk is the standard 'clone and make' approach. Make sure you have `cmake` installed.
+
 ``` 
 git clone https://github.com/ranguli/cLDtk
 cd cLDtk

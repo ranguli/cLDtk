@@ -1,7 +1,7 @@
 # cLDtk
 C99 loader for the [LDtk](https://ldtk.io/) map editor, using [Parson](https://github.com/kgabis/parson) for JSON parsing.
 
-This is a fork of the [original](https://github.com/PompPenguin/cLDtk) by PompPenguin. This forks builds the library with CMake (see [Getting Started](#getting-started)). Future plans include adding API documentation, and probably some code cleanup/refactoring as well.
+This is a fork of the [original](https://github.com/PompPenguin/cLDtk) by PompPenguin. This forks builds the library with CMake (see [Getting Started](#getting-started)). For future plans, see [Roadmap](#roadmap)
 
 ## Documentation
 
@@ -50,3 +50,10 @@ mkdir build && cd build
 cmake .
 make
 ```
+
+## Roadmap
+- [x] Building with CMake instead of `gcc` commands
+- [ ] API documentation with Doxygen
+- [ ] Integrate GitHub actions for builds
+- [ ] Start versioning the project (i.e releases)
+- [ ] Code cleanup / refactoring

@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdbool.h>
 
-#include "cLDtk.h"
+#include "cLDtk/cLDtk.h"
 
 //------------------------------------------------
 //          How to compile for GCC

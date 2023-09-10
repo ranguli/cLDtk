@@ -2,24 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "cLDtk.h"
-
-
-//------------------------------------------------
-//          How to compile for DJGPP
-//------------------------------------------------
-//      $> gcc -c cLDtk.c parson.c -std=c99
-//      $> ar rvs libcLDtk.a cLDtk.o parson.o
-//      $> gcc example.c -o example.exe libcLDtk.a -std=c99
-//
-//
+#include "cLDtk/cLDtk.h"
 
 int main(void){
 
     
     // parameters: fileSchema, fileName
-	// must chage JSON file to txt for MS-DOS 8(name).3(extension) file format
-    loadJSONFile("{\"jsonVersion\":\"\"}","map.txt");
+    loadJSONFile("{\"jsonVersion\":\"\"}", "../../examples/map.json");
     
     importMapData();
 
